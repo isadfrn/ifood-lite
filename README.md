@@ -19,7 +19,7 @@
 
 ## About
 
-A iFood like application for managing orders.
+A iFood like application for managing food orders.
 
 ## Run
 
