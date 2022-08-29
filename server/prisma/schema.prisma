@@ -1,0 +1,137 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(uuid())
+  name      String
+  email     String     @unique
+  password  String
+  image     String?
+  admin     Boolean    @default(false)
+  favorite  Favorite[]
+  order     Order[]
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+
+  @@map("user")
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  dish      Dish[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("category")
+}
+
+model PayMethod {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  order     Order[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("pay_method")
+}
+
+model Ingredient {
+  id                   String                 @id @default(uuid())
+  name                 String                 @unique
+  price                Decimal
+  image                String
+  dishesHasIngredients DishesHasIngredients[]
+  createdAt            DateTime               @default(now()) @map("created_at")
+  updatedAt            DateTime               @updatedAt @map("updated_at")
+
+  @@map("ingredient")
+}
+
+model Dish {
+  id                   String                 @id @default(uuid())
+  name                 String                 @unique
+  description          String
+  price                Decimal
+  image                String
+  weight               Int
+  category             Category               @relation(fields: [categoryId], references: [id])
+  categoryId           String                 @map("category_id")
+  dishesHasIngredients DishesHasIngredients[]
+  orderHasDishes       OrderHasDishes[]
+  favorite             Favorite[]
+  createdAt            DateTime               @default(now()) @map("created_at")
+  updatedAt            DateTime               @updatedAt @map("updated_at")
+
+  @@map("dish")
+}
+
+model DishesHasIngredients {
+  id           String     @id @default(uuid())
+  dish         Dish       @relation(fields: [dishId], references: [id])
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  dishId       String     @map("dish_id")
+  ingredientId String     @map("ingredient_id")
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @updatedAt @map("updated_at")
+
+  @@map("dishes_has_ingredients")
+}
+
+model Favorite {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  dish      Dish     @relation(fields: [dishId], references: [id])
+  userId    String   @map("user_id")
+  dishId    String   @map("dish_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("favorite")
+}
+
+model Order {
+  id             String           @id @default(uuid())
+  total          Decimal
+  paid           Boolean          @default(false)
+  comment        String?
+  status         Status           @relation(fields: [statusId], references: [id])
+  user           User             @relation(fields: [userId], references: [id])
+  pay_method     PayMethod        @relation(fields: [payMethodId], references: [id])
+  statusId       String           @map("status_id")
+  userId         String           @map("user_id")
+  payMethodId    String           @map("pay_method_id")
+  OrderHasDishes OrderHasDishes[]
+  createdAt      DateTime         @default(now()) @map("created_at")
+  updatedAt      DateTime         @updatedAt @map("updated_at")
+
+  @@map("order")
+}
+
+model OrderHasDishes {
+  id        String   @id @default(uuid())
+  order     Order    @relation(fields: [orderId], references: [id])
+  dish      Dish     @relation(fields: [dishId], references: [id])
+  orderId   String   @map("order_id")
+  dishId    String   @map("dish_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("order_has_dishes")
+}
+
+model Status {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  Order     Order[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("status")
+}
