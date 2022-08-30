@@ -29,6 +29,20 @@ class UsersController {
 
     return response.json(userWithImageUpdated);
   }
+
+  async update(request, response) {
+    const id = request.user.id;
+    const { name, password, passwordConfirmation } = request.body;
+
+    const userUpdated = await usersService.update({
+      id,
+      name,
+      password,
+      passwordConfirmation,
+    });
+
+    return response.json(userUpdated);
+  }
 }
 
 module.exports = UsersController;

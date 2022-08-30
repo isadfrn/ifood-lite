@@ -1,7 +1,7 @@
 const Error = require("../middlewares/Error");
 const DiskStorage = require("../providers/DiskStorage");
 
-const { hash } = require("bcrypt");
+const { hash, compare } = require("bcrypt");
 
 class UsersService {
   constructor(usersRepository) {
@@ -28,6 +28,24 @@ class UsersService {
     return await this.usersRepository.create({
       name,
       email,
+      password: hashedPassword,
+    });
+  }
+
+  async update({ id, name, password, passwordConfirmation }) {
+    if (!name || !password || !passwordConfirmation) {
+      throw new Error("Mandatory field's not informed");
+    }
+
+    if (password !== passwordConfirmation) {
+      throw new Error("Typed password do not match");
+    }
+
+    const hashedPassword = await hash(password, 8);
+
+    return await this.usersRepository.update({
+      id,
+      name,
       password: hashedPassword,
     });
   }

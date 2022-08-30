@@ -13,10 +13,10 @@ class UsersRepository {
     });
   }
 
-  async update({ id, name, email, password }) {
+  async update({ id, name, password }) {
     return await prisma.users.update({
       where: { id },
-      data: { name, email, password },
+      data: { name, password },
       select: userWithNoPassword,
     });
   }
