@@ -1,6 +1,6 @@
 const Error = require("../middlewares/Error");
 
-async function verifyIfUserIsAdmin(repository, id) {
+async function userIsAdmin(repository, id) {
   const user = await repository.findById({ id: id });
 
   if (user.admin) {
@@ -10,4 +10,4 @@ async function verifyIfUserIsAdmin(repository, id) {
   }
 }
 
-module.exports = verifyIfUserIsAdmin;
+module.exports = userIsAdmin;

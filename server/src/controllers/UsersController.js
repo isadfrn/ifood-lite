@@ -1,14 +1,14 @@
-const UserService = require("../services/UserService");
-const UserRepository = require("../repositories/UserRepository");
+const UsersRepository = require("../repositories/UsersRepository");
+const UsersService = require("../services/UsersService");
 
-const userRepository = new UserRepository();
-const userService = new UserService(userRepository);
+const usersRepository = new UsersRepository();
+const usersService = new UsersService(usersRepository);
 
-class UserController {
+class UsersController {
   async create(request, response) {
     const { name, email, password, passwordConfirmation } = request.body;
 
-    const userCreated = await userService.create({
+    const userCreated = await usersService.create({
       name,
       email,
       password,
@@ -22,7 +22,7 @@ class UserController {
     const id = request.user.id;
     const image = request.file.filename;
 
-    const userWithImageUpdated = await userService.updateImage({
+    const userWithImageUpdated = await usersService.updateImage({
       id,
       image,
     });
@@ -31,4 +31,4 @@ class UserController {
   }
 }
 
-module.exports = UserController;
+module.exports = UsersController;

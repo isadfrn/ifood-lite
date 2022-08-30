@@ -5,7 +5,6 @@ const express = require("express");
 const uploadConfig = require("./configs/upload");
 const cors = require("cors");
 const routes = require("./routes");
-
 const Error = require("./middlewares/Error");
 
 const app = express();

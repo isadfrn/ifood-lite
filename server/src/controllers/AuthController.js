@@ -1,8 +1,8 @@
-const UserRepository = require("../repositories/UserRepository");
+const UsersRepository = require("../repositories/UsersRepository");
 const AuthService = require("../services/AuthService");
 
-const userRepository = new UserRepository();
-const authService = new AuthService(userRepository);
+const usersRepository = new UsersRepository();
+const authService = new AuthService(usersRepository);
 
 class AuthController {
   async login(request, response) {

@@ -1,4 +1,4 @@
-const userSelect = {
+const userWithNoPassword = {
   id: true,
   name: true,
   email: true,
@@ -8,4 +8,4 @@ const userSelect = {
   updatedAt: true,
 };
 
-module.exports = userSelect;
+module.exports = userWithNoPassword;
