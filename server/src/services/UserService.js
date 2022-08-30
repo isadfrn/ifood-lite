@@ -1,5 +1,7 @@
-const { hash } = require("bcrypt");
 const Error = require("../middlewares/Error");
+const DiskStorage = require("../providers/DiskStorage");
+
+const { hash } = require("bcrypt");
 
 class UserService {
   constructor(userRepository) {
@@ -15,23 +17,43 @@ class UserService {
       throw new Error("Typed password do not match");
     }
 
-    const emailExists = await this.userRepository.emailExists({ email });
+    const userExists = await this.userRepository.findByEmail({ email });
 
-    if (emailExists) {
+    if (userExists) {
       throw new Error("Email already used");
     }
 
     const hashedPassword = await hash(password, 8);
 
-    const userCreated = await this.userRepository.create({
+    return await this.userRepository.create({
       name,
       email,
       password: hashedPassword,
     });
+  }
 
-    delete userCreated.password;
+  async updateImage({ id, image }) {
+    const diskStorage = new DiskStorage();
 
-    return userCreated;
+    const user = await this.userRepository.findById({ id });
+
+    if (!user) {
+      throw new Error("Only authenticated users can update an avatar", 401);
+    }
+
+    if (user.image) {
+      await diskStorage.deleteFile(user.image);
+    }
+
+    const filename = await diskStorage.saveFile(image);
+
+    user.image = filename;
+
+    const updatedUser = await this.userRepository.updateImage({
+      id,
+      image: user.image,
+    });
+    return updatedUser;
   }
 }
 

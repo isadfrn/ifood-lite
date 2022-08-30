@@ -3,7 +3,7 @@
   "main": "./src/server.js",
   "scripts": {
     "dev": "nodemon ./src/server.js",
-    "migrate": "knex migrate:latest"
+    "migrate": "prisma migrate dev --name init && prisma generate"
   },
   "license": "MIT",
   "dependencies": {
