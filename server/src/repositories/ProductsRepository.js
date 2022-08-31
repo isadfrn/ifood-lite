@@ -1,15 +1,15 @@
 const prisma = require("../../prisma/client");
 
 class ProductsRepository {
-  async create({ name, description, price, ingredients }) {
+  async create({ name, description, price, ingredients, category }) {
     return await prisma.products.create({
-      data: { name, description, price, ingredients },
+      data: { name, description, price, ingredients, category },
     });
   }
 
   async updateImage({ id, image }) {
     return await prisma.products.update({
-      where: { id },
+      where: Object(id),
       data: {
         image,
       },
@@ -24,7 +24,7 @@ class ProductsRepository {
 
   async findById({ id }) {
     return await prisma.products.findUnique({
-      where: { id },
+      where: Object(id),
     });
   }
 }

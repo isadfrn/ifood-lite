@@ -17,6 +17,7 @@ CREATE TABLE "products" (
     "description" TEXT NOT NULL,
     "price" DECIMAL NOT NULL,
     "ingredients" TEXT NOT NULL,
+    "category" TEXT NOT NULL,
     "image" TEXT,
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" DATETIME NOT NULL
@@ -25,7 +26,7 @@ CREATE TABLE "products" (
 -- CreateTable
 CREATE TABLE "orders" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "total_price" DECIMAL NOT NULL,
+    "total_price" DECIMAL NOT NULL DEFAULT 0,
     "pay_method" TEXT NOT NULL DEFAULT 'pix',
     "status" TEXT NOT NULL DEFAULT 'pending',
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

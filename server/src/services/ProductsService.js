@@ -6,8 +6,8 @@ class ProductsService {
     this.productsRepository = productsRepository;
   }
 
-  async create({ name, description, price, ingredients }) {
-    if (!name || !description || !price || !ingredients) {
+  async create({ name, description, price, ingredients, category }) {
+    if (!name || !description || !price || !ingredients || !category) {
       throw new Error("Mandatory field's not informed");
     }
 
@@ -15,7 +15,7 @@ class ProductsService {
 
     if (ingredients.length > 0) {
       ingredients.map((item) => {
-        parsedIngredients = parsedIngredients + item + ",";
+        parsedIngredients = parsedIngredients + item.toLowerCase() + ",";
       });
 
       parsedIngredients = parsedIngredients.slice(
@@ -24,27 +24,32 @@ class ProductsService {
       );
     }
 
-    const productExists = await this.productsRepository.findByName({ name });
+    const parsedName = name.toLowerCase();
+
+    const productExists = await this.productsRepository.findByName({
+      name: parsedName,
+    });
 
     if (productExists) {
-      throw new Error("Product name already used");
+      throw new Error("Product already used");
     }
 
     return await this.productsRepository.create({
-      name,
+      name: parsedName,
       description,
       price,
       ingredients: parsedIngredients,
+      category: category.toLowerCase(),
     });
   }
 
-  /*async updateImage({ id, image }) {
+  async updateImage({ id, image }) {
     const diskStorage = new DiskStorage();
 
     const product = await this.productsRepository.findById({ id });
 
     if (!product) {
-      throw new Error("Can't find image to update", 401);
+      throw new Error("Can't find product", 401);
     }
 
     if (product.image) {
@@ -60,7 +65,7 @@ class ProductsService {
       image: product.image,
     });
     return updatedProduct;
-  }*/
+  }
 }
 
 module.exports = ProductsService;

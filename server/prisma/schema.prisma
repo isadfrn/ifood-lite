@@ -27,6 +27,7 @@ model Products {
   description String
   price       Decimal
   ingredients String
+  category    String
   image       String?
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
@@ -37,7 +38,7 @@ model Products {
 
 model Orders {
   id         String     @id @default(uuid())
-  totalPrice Decimal    @map("total_price")
+  totalPrice Decimal    @default(0) @map("total_price")
   payMethod  String     @default("pix") @map("pay_method")
   status     String     @default("pending")
   createdAt  DateTime   @default(now()) @map("created_at")
@@ -48,3 +49,4 @@ model Orders {
 
   @@map("orders")
 }
+

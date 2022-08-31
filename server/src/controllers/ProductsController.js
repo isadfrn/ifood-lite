@@ -6,29 +6,30 @@ const productsService = new ProductsService(productsRepository);
 
 class ProductsController {
   async create(request, response) {
-    const { name, description, price, ingredients } = request.body;
+    const { name, description, price, ingredients, category } = request.body;
 
     const productCreated = await productsService.create({
       name,
       description,
       price,
       ingredients,
+      category,
     });
 
     return response.json(productCreated);
   }
 
-  /*async updateImage(request, response) {
-    const id = request.user.id;
+  async updateImage(request, response) {
+    const productId = request.params;
     const image = request.file.filename;
 
-    const userWithImageUpdated = await usersService.updateImage({
-      id,
+    const productsWithImageUpdated = await productsService.updateImage({
+      id: productId,
       image,
     });
 
-    return response.json(userWithImageUpdated);
-  }*/
+    return response.json(productsWithImageUpdated);
+  }
 
   /*async update(request, response) {
     const id = request.user.id;
