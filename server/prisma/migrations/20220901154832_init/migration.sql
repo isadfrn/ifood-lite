@@ -78,3 +78,12 @@ CREATE TABLE "ingredients" (
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" DATETIME NOT NULL
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "products_name_key" ON "products"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ingredients_name_key" ON "ingredients"("name");

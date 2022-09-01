@@ -1,6 +1,5 @@
 const Error = require("../middlewares/Error");
 const DiskStorage = require("../providers/DiskStorage");
-const checkIfUserIsNotLogged = require("../utils/checkIfUserIsNotLogged");
 
 const { hash } = require("bcrypt");
 
@@ -58,7 +57,11 @@ class UsersService {
   }
 
   async update(loggedUserId, name, email, password, passwordConfirmation) {
-    checkIfUserIsNotLogged(this.usersRepository, loggedUserId);
+    const user = await this.usersRepository.findById(loggedUserId);
+
+    if (!loggedUserId || !user) {
+      throw new Error("User not logged");
+    }
 
     if (!name || !email || !password || !passwordConfirmation) {
       throw new Error("Mandatory field's not informed");
@@ -79,25 +82,43 @@ class UsersService {
   }
 
   async delete(loggedUserId) {
-    checkIfUserIsNotLogged(this.usersRepository, loggedUserId);
+    const user = await this.usersRepository.findById(loggedUserId);
+
+    if (!loggedUserId || !user) {
+      throw new Error("User not logged");
+    }
 
     return await this.usersRepository.delete(loggedUserId);
   }
 
   async findAll(loggedUserId) {
-    checkIfUserIsNotLogged(this.usersRepository, loggedUserId);
+    const user = await this.usersRepository.findById(loggedUserId);
+
+    if (!loggedUserId || !user) {
+      throw new Error("User not logged");
+    }
 
     return await this.usersRepository.findAll();
   }
 
   async findById(loggedUserId, userIdToFind) {
-    checkIfUserIsNotLogged(this.usersRepository, loggedUserId);
+    const user = await this.usersRepository.findById(loggedUserId);
+
+    if (!loggedUserId || !user) {
+      throw new Error("User not logged");
+    }
 
     if (!userIdToFind) {
       throw new Error("Mandatory field's not informed");
     }
 
-    return await this.usersRepository.findById(userIdToFind.id);
+    const findedUser = await this.usersRepository.findById(userIdToFind.id);
+
+    if (!findedUser) {
+      throw new Error("No user with this ID was finded");
+    } else {
+      return findedUser;
+    }
   }
 }
 
