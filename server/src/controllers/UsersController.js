@@ -8,40 +8,63 @@ class UsersController {
   async create(request, response) {
     const { name, email, password, passwordConfirmation } = request.body;
 
-    const userCreated = await usersService.create({
+    const userCreated = await usersService.create(
       name,
       email,
       password,
-      passwordConfirmation,
-    });
+      passwordConfirmation
+    );
 
     return response.json(userCreated);
   }
 
   async updateImage(request, response) {
-    const id = request.user.id;
+    const loggedUserId = request.user.id;
     const image = request.file.filename;
 
-    const userWithImageUpdated = await usersService.updateImage({
-      id,
-      image,
-    });
+    const userWithImageUpdated = await usersService.updateImage(
+      loggedUserId,
+      image
+    );
 
     return response.json(userWithImageUpdated);
   }
 
   async update(request, response) {
-    const id = request.user.id;
-    const { name, password, passwordConfirmation } = request.body;
+    const loggedUserId = request.user.id;
+    const { name, email, password, passwordConfirmation } = request.body;
 
-    const userUpdated = await usersService.update({
-      id,
+    const userUpdated = await usersService.update(
+      loggedUserId,
       name,
+      email,
       password,
-      passwordConfirmation,
-    });
+      passwordConfirmation
+    );
 
     return response.json(userUpdated);
+  }
+
+  async delete(request, response) {
+    const loggedUserId = request.user.id;
+
+    const deletedUser = await usersService.delete(loggedUserId);
+
+    return response.json(deletedUser);
+  }
+
+  async findAll(request, response) {
+    const loggedUserId = request.user.id;
+    const findedUser = await usersService.findAll(loggedUserId);
+    return response.json(findedUser);
+  }
+
+  async findById(request, response) {
+    const loggedUserId = request.user.id;
+    const userIdToFind = request.params;
+
+    const findedUser = await usersService.findById(loggedUserId, userIdToFind);
+    return response.json(findedUser);
   }
 }
 

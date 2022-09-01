@@ -4,7 +4,7 @@ async function userIsAdmin(repository, id) {
   const user = await repository.findById({ id: id });
 
   if (user.admin) {
-    return true;
+    return;
   } else {
     throw new Error("You're not a admin user", 401);
   }

@@ -8,7 +8,7 @@ class AuthController {
   async login(request, response) {
     const { email, password } = request.body;
 
-    const loggedUser = await authService.login({ email, password });
+    const loggedUser = await authService.login(email, password);
 
     return response.json(loggedUser);
   }

@@ -9,8 +9,12 @@ class AuthService {
     this.usersRepository = usersRepository;
   }
 
-  async login({ email, password }) {
-    const user = await this.usersRepository.findByEmail({ email });
+  async login(email, password) {
+    if (!email || !password) {
+      throw new Error("Mandatory field's not informed");
+    }
+
+    const user = await this.usersRepository.findByEmailWithPassword(email);
 
     if (!user) {
       throw new Error("Invalid credentials", 401);
