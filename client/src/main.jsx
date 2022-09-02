@@ -1,8 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import theme from "./styles/theme";
+import GlobalStyles from "./styles/global";
+
+import { ThemeProvider } from "styled-components";
+import { Routes } from "./routes";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <h1>iFood</h1>
-  </React.StrictMode>,
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Routes />
+    </ThemeProvider>
+  </React.StrictMode>
 );
