@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-export function Input({ icon, ...rest }) {
+export function InputMobileMenu({ icon, ...rest }) {
   return (
     <Container>
       {icon && <img src={icon} alt="Icon" />}

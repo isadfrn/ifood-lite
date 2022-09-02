@@ -1,25 +1,19 @@
 import logo from "../../assets/img/logo.svg";
-
 import { useState } from "react";
-
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
-
+import { Link } from "react-router-dom";
+import { InputStandard } from "../../components/InputStandard";
+import { ButtonStandard } from "../../components/ButtonStandard";
 import { Container, LeftContainer, RightContainer } from "./styles";
 
 export function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleLogin(event) {
-    event.preventDefault();
-
+  function handleLogin() {
     const data = {
       email,
       password,
     };
-
-    console.log(data);
   }
 
   return (
@@ -32,7 +26,7 @@ export function LogIn() {
         <form>
           <div>
             <label htmlFor="email">Email</label>
-            <Input
+            <InputStandard
               id="email"
               name="email"
               type="email"
@@ -42,7 +36,7 @@ export function LogIn() {
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <Input
+            <InputStandard
               id="password"
               name="password"
               type="password"
@@ -50,9 +44,9 @@ export function LogIn() {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-          <Button title="Login" onClick={handleLogin} />
+          <ButtonStandard title="Login" onClick={handleLogin} />
         </form>
-        <a href="/signup">Create account</a>
+        <Link to="/signup">Create account</Link>
       </RightContainer>
     </Container>
   );

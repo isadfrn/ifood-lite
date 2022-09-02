@@ -1,19 +1,27 @@
-import logo from "../../assets/img/logo.svg";
-import search from "../../assets/img/search.svg";
-import order from "../../assets/img/order.svg";
+import theme from "../../styles/theme";
+import { useState, useEffect } from "react";
+import { MobileMenu } from "../MobileMenu";
+import { DesktopMenu } from "../DesktopMenu";
+import { Container, Nav } from "./styles";
 
-import { Input } from "../Input";
-import { Button } from "../Button";
+export function Navbar() {
+  const [screenSize, setScreenSize] = useState({
+    matches: window.innerWidth > theme.BREAKPOINTS.LAPTOP ? true : false,
+  });
 
-import { Container } from "./styles";
+  useEffect(() => {
+    let mediaQuery = window.matchMedia(
+      `(min-width: ${theme.BREAKPOINTS.LAPTOP}px)`
+    );
+    mediaQuery.addListener(setScreenSize);
+    return () => mediaQuery.removeListener(setScreenSize);
+  }, []);
 
-export function Navbar({ orderQuantity = 0 }) {
   return (
     <Container>
-      <img src={logo} alt="iFood lite" />
-      <a href="#">My favorites</a>
-      <Input icon={search} />
-      <Button icon={order} title={`My order (${orderQuantity})`} />
+      <Nav>
+        {screenSize && !screenSize.matches ? <MobileMenu /> : <DesktopMenu />}
+      </Nav>
     </Container>
   );
 }

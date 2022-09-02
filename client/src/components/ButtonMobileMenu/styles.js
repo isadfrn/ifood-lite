@@ -4,7 +4,9 @@ export const Container = styled.button`
   width: 100%;
   height: 3rem;
   margin-bottom: 0.8rem;
+
   border-radius: 0.2rem;
+  border: 0.1rem solid ${({ theme }) => theme.COLORS.WHITE_500};
 
   display: flex;
   align-items: center;

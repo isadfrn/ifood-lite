@@ -1,10 +1,8 @@
 import logo from "../../assets/img/logo.svg";
-
 import { useState } from "react";
-
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
-
+import { Link } from "react-router-dom";
+import { InputStandard } from "../../components/InputStandard";
+import { ButtonStandard } from "../../components/ButtonStandard";
 import { Container, LeftContainer, RightContainer } from "./styles";
 
 export function SignUp() {
@@ -13,17 +11,13 @@ export function SignUp() {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-  function handleSignUp(event) {
-    event.preventDefault();
-
+  function handleSignUp() {
     const data = {
       name,
       email,
       password,
       passwordConfirmation,
     };
-
-    console.log(data);
   }
 
   return (
@@ -36,7 +30,7 @@ export function SignUp() {
         <form>
           <div>
             <label htmlFor="name">Name</label>
-            <Input
+            <InputStandard
               id="name"
               name="name"
               type="name"
@@ -47,7 +41,7 @@ export function SignUp() {
           </div>
           <div>
             <label htmlFor="email">Email</label>
-            <Input
+            <InputStandard
               id="email"
               name="email"
               type="email"
@@ -58,7 +52,7 @@ export function SignUp() {
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <Input
+            <InputStandard
               id="password"
               name="password"
               type="password"
@@ -69,7 +63,7 @@ export function SignUp() {
           </div>
           <div>
             <label htmlFor="password">Password Confirmation</label>
-            <Input
+            <InputStandard
               id="passwordConfirmation"
               name="passwordConfirmation"
               type="password"
@@ -78,9 +72,9 @@ export function SignUp() {
               onChange={(event) => setPasswordConfirmation(event.target.value)}
             />
           </div>
-          <Button title="Create account" onClick={handleSignUp} />
+          <ButtonStandard title="Create account" onClick={handleSignUp} />
         </form>
-        <a href="/">Already have an account</a>
+        <Link to="/">Already have an account</Link>
       </RightContainer>
     </Container>
   );

@@ -13,11 +13,13 @@ export const Container = styled.div`
     height: 2.5rem;
     width: 100%;
     padding: 1rem 0.5rem;
+    border: none;
+    font-size: 1rem;
 
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS.WHITE_500};
 
-    &:placeholder {
+    &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_600};
     }
 
