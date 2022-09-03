@@ -29,6 +29,7 @@ export const Container = styled.div`
   @media (min-width: ${({ theme }) => theme.BREAKPOINTS.LAPTOP}px) {
     flex-direction: row;
     justify-content: center;
+    margin-top: 25rem;
 
     img {
       max-width: 30rem;
