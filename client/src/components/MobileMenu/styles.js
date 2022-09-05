@@ -35,6 +35,10 @@ export const MenuBody = styled.div`
   animation-duration: 600ms;
   transition: all 600ms ease-in;
 
+  button:last-child {
+    text-align: left;
+  }
+
   > a {
     color: ${({ theme }) => theme.COLORS.WHITE_500};
   }

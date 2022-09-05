@@ -44,12 +44,12 @@ export default createGlobalStyle`
   ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #EA1D2Cb3;
+    background: #C4C4CCb3;
     -webkit-box-shadow: inset 0 0 6px #00000080;
     box-shadow: inset 0 0 6px #00000080;
   }
 
   ::-webkit-scrollbar-thumb:window-inactive {
-    background: #EA1D2C66;
+    background: #C4C4CC66;
   }
 `;

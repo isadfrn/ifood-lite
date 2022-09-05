@@ -2,7 +2,7 @@ import { Container } from "./styles";
 import { Navbar } from "../../components/Navbar";
 import { Header } from "../../components/Header";
 import { ProductSlider } from "../../components/ProductSlider";
-import { Card } from "../../components/Card";
+import { Footer } from "../../components/Footer";
 
 export function Home() {
   const data = [
@@ -52,9 +52,10 @@ export function Home() {
       <Navbar />
       <Header />
       <ProductSlider title="Drinks" items={data} />
-      <ProductSlider title="Appetizers" items={data} />
-      <ProductSlider title="Main" items={data} />
-      <ProductSlider title="Deserts" items={data} />
+      <ProductSlider title="Drinks" items={data} />
+      <ProductSlider title="Drinks" items={data} />
+      <ProductSlider title="Drinks" items={data} />
+      <Footer />
     </Container>
   );
 }

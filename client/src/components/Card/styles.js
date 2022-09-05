@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   padding: 2rem;
   background-color: ${({ theme }) => theme.COLORS.BLUE_600};
-  max-width: 20rem;
+  width: 20rem;
 
   display: flex;
   flex-direction: column;

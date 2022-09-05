@@ -5,16 +5,21 @@ import {
   Slider,
   Head,
   CardArea,
-  ButtonWrapper,
+  ButtonWrapperLeft,
+  ButtonWrapperRight,
   NoItem,
 } from "./styles";
 import { Card } from "../Card";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export function ProductSlider({ title, items }) {
   const [renderCard, setRenderCard] = useState(false);
-  const [cardPositionFirst, setCardPositionFirst] = useState(0);
-  const [gridSize, setGridSize] = useState(1);
+
+  const ref = useRef(null);
+
+  const scroll = (scrollOffset) => {
+    ref.current.scrollLeft += scrollOffset;
+  };
 
   useEffect(() => {
     if (items.length === 0) {
@@ -24,52 +29,39 @@ export function ProductSlider({ title, items }) {
     }
   }, [renderCard]);
 
-  function handleRightClick() {
-    if (gridSize === 1 && cardPositionFirst < items.length - 1) {
-      setCardPositionFirst(cardPositionFirst + 1);
-    } else return;
-  }
-
-  function handleLeftClick() {
-    if (cardPositionFirst > 0) {
-      setCardPositionFirst(cardPositionFirst - 1);
-    } else {
-      return;
-    }
-  }
-
-  function GridWithOneCard() {
-    return (
-      <Card
-        image={items[cardPositionFirst].image}
-        title={items[cardPositionFirst].title}
-        description={items[cardPositionFirst].description}
-        price={items[cardPositionFirst].price}
-      />
-    );
-  }
-
   return (
     <Container>
       <Head>
         <h2>{title}</h2>
       </Head>
       <Slider>
-        <ButtonWrapper>
-          <button onClick={handleLeftClick}>
+        <ButtonWrapperLeft>
+          <button onClick={() => scroll(-200)}>
             <img src={left} />
           </button>
-        </ButtonWrapper>
-        <CardArea>
-          {(() => {
-            if (gridSize === 1) return <GridWithOneCard />;
-          })()}
+        </ButtonWrapperLeft>
+        <CardArea ref={ref}>
+          {renderCard ? (
+            items.map((item, index) => (
+              <Card
+                description={item.description}
+                image={item.image}
+                price={item.price}
+                title={item.title}
+                key={index}
+              />
+            ))
+          ) : (
+            <NoItem>
+              <span>No product on this section</span>
+            </NoItem>
+          )}
         </CardArea>
-        <ButtonWrapper>
-          <button onClick={handleRightClick}>
+        <ButtonWrapperRight>
+          <button onClick={() => scroll(200)}>
             <img src={right} />
           </button>
-        </ButtonWrapper>
+        </ButtonWrapperRight>
       </Slider>
     </Container>
   );
