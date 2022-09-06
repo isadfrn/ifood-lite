@@ -3,10 +3,8 @@ import styled from "styled-components";
 export const Container = styled.button`
   width: 100%;
   height: 3rem;
-  margin-bottom: 0.8rem;
-
   border-radius: 0.2rem;
-  border: 0.1rem solid ${({ theme }) => theme.COLORS.WHITE_500};
+  transition: filter 0.2s;
 
   display: flex;
   align-items: center;
@@ -14,8 +12,6 @@ export const Container = styled.button`
 
   background-color: ${({ theme }) => theme.COLORS.RED_600};
   color: ${({ theme }) => theme.COLORS.WHITE_500};
-
-  transition: filter 0.2s;
 
   &:hover {
     cursor: pointer;

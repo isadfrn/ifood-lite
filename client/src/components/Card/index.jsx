@@ -2,17 +2,18 @@ import heart from "../../assets/img/heart.svg";
 import heartFilled from "../../assets/img/heart-filled.svg";
 import plus from "../../assets/img/plus.svg";
 import minus from "../../assets/img/minus.svg";
+import { useState } from "react";
+import { Button } from "../Button";
 import {
   Container,
   FavoriteWrapper,
-  Button,
+  CardButton,
   ControlsWrapper,
   ProductImage,
   Price,
   Quantity,
+  LinkToDetails,
 } from "./styles";
-import { useState } from "react";
-import { ButtonStandard } from "../ButtonStandard";
 
 export function Card({ image, title, description, price }) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -41,30 +42,31 @@ export function Card({ image, title, description, price }) {
   return (
     <Container>
       <FavoriteWrapper>
-        <Button onClick={handleFavoriteClick}>
+        <CardButton onClick={handleFavoriteClick}>
           <img src={isFavorite ? heartFilled : heart} />
-        </Button>
+        </CardButton>
       </FavoriteWrapper>
 
-      <ProductImage src={image} alt="A dish image" />
+      <LinkToDetails to="/details">
+        <ProductImage src={image} alt="A dish image" />
 
-      <h2>{title}</h2>
-      <h3>{description}</h3>
+        <h2>{title}</h2>
+        <h3>{description}</h3>
 
-      <Price>$ {price}</Price>
-
+        <Price>$ {price}</Price>
+      </LinkToDetails>
       <ControlsWrapper>
-        <Button onClick={handleDecrease}>
+        <CardButton onClick={handleDecrease}>
           <img src={minus} alt="Minus" />
-        </Button>
+        </CardButton>
 
         <Quantity>{quantity}</Quantity>
 
-        <Button onClick={handleIncrease}>
+        <CardButton onClick={handleIncrease}>
           <img src={plus} alt="Plus" />
-        </Button>
+        </CardButton>
 
-        <ButtonStandard title="Add" />
+        <Button title="Add" />
       </ControlsWrapper>
     </Container>
   );

@@ -1,4 +1,3 @@
-import { Container } from "./styles";
 import { Navbar } from "../../components/Navbar";
 import { Header } from "../../components/Header";
 import { ProductSlider } from "../../components/ProductSlider";
@@ -45,10 +44,290 @@ export function Home() {
         "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
       price: "2,99",
     },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
+    {
+      image:
+        "https://www.bistek.com.br/media/catalog/product/cache/15b2f1f06e1cd470c80b1f3fd7ec8301/9/9/997463.jpg",
+      title: "Coke",
+      description:
+        "Coke é um sanduíche brasileiro provavelmente influenciado pela culinária sírio-libanesa",
+      price: "2,99",
+    },
   ];
 
   return (
-    <Container>
+    <div>
       <Navbar />
       <Header />
       <ProductSlider title="Drinks" items={data} />
@@ -56,6 +335,6 @@ export function Home() {
       <ProductSlider title="Drinks" items={data} />
       <ProductSlider title="Drinks" items={data} />
       <Footer />
-    </Container>
+    </div>
   );
 }

@@ -2,7 +2,6 @@ import theme from "../../styles/theme";
 import { useState, useEffect } from "react";
 import { MobileMenu } from "../MobileMenu";
 import { DesktopMenu } from "../DesktopMenu";
-import { Container, Nav } from "./styles";
 
 export function Navbar() {
   const [screenSize, setScreenSize] = useState({
@@ -18,10 +17,8 @@ export function Navbar() {
   }, []);
 
   return (
-    <Container>
-      <Nav>
-        {screenSize && !screenSize.matches ? <MobileMenu /> : <DesktopMenu />}
-      </Nav>
-    </Container>
+    <nav>
+      {screenSize && !screenSize.matches ? <MobileMenu /> : <DesktopMenu />}
+    </nav>
   );
 }

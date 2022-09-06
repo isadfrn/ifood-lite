@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Button } from "../Button";
+import { Input } from "../Input";
 
 export const Container = styled.div`
   padding: 2rem;
@@ -6,16 +8,30 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
 
-  > img {
-    width: 8rem;
+  > a {
+    img {
+      width: 8rem;
+    }
   }
 `;
 
-export const CloseOpenButton = styled.button`
+export const MenuButton = styled.button`
   text-align: left;
   background: none;
   border: none;
   margin-bottom: 1rem;
+`;
+
+export const Search = styled(Input)`
+  > input {
+    &::placeholder {
+      color: ${({ theme }) => theme.COLORS.WHITE_500};
+    }
+  }
+`;
+
+export const OrderButton = styled(Button)`
+  border: 1px solid ${({ theme }) => theme.COLORS.WHITE_500};
 `;
 
 export const MenuBody = styled.div`

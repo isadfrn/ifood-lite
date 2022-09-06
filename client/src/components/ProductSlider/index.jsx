@@ -1,16 +1,15 @@
 import left from "../../assets/img/left.svg";
 import right from "../../assets/img/right.svg";
+import { useEffect, useState, useRef } from "react";
 import {
   Container,
   Slider,
   Head,
   CardArea,
-  ButtonWrapperLeft,
-  ButtonWrapperRight,
+  ButtonWrapper,
   NoItem,
 } from "./styles";
 import { Card } from "../Card";
-import { useEffect, useState, useRef } from "react";
 
 export function ProductSlider({ title, items }) {
   const [renderCard, setRenderCard] = useState(false);
@@ -35,11 +34,11 @@ export function ProductSlider({ title, items }) {
         <h2>{title}</h2>
       </Head>
       <Slider>
-        <ButtonWrapperLeft>
+        <ButtonWrapper>
           <button onClick={() => scroll(-200)}>
             <img src={left} />
           </button>
-        </ButtonWrapperLeft>
+        </ButtonWrapper>
         <CardArea ref={ref}>
           {renderCard ? (
             items.map((item, index) => (
@@ -57,11 +56,11 @@ export function ProductSlider({ title, items }) {
             </NoItem>
           )}
         </CardArea>
-        <ButtonWrapperRight>
+        <ButtonWrapper>
           <button onClick={() => scroll(200)}>
             <img src={right} />
           </button>
-        </ButtonWrapperRight>
+        </ButtonWrapper>
       </Slider>
     </Container>
   );

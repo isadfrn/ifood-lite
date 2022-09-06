@@ -1,8 +1,8 @@
 import logo from "../../assets/img/logo.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { InputStandard } from "../../components/InputStandard";
-import { ButtonStandard } from "../../components/ButtonStandard";
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 import { Container, LeftContainer, RightContainer } from "./styles";
 
 export function LogIn() {
@@ -14,6 +14,7 @@ export function LogIn() {
       email,
       password,
     };
+    console.log(data);
   }
 
   return (
@@ -26,7 +27,7 @@ export function LogIn() {
         <form>
           <div>
             <label htmlFor="email">Email</label>
-            <InputStandard
+            <Input
               id="email"
               name="email"
               type="email"
@@ -36,7 +37,7 @@ export function LogIn() {
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <InputStandard
+            <Input
               id="password"
               name="password"
               type="password"
@@ -44,7 +45,7 @@ export function LogIn() {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-          <ButtonStandard title="Login" onClick={handleLogin} />
+          <Button title="Login" onClick={handleLogin} />
         </form>
         <Link to="/signup">Create account</Link>
       </RightContainer>
