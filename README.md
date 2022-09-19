@@ -8,10 +8,6 @@
 
 A iFood like application for managing food orders.
 
-## Run
-
-For back-end run `npm install` then `npm run dev`. For front-end install [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), right click on `index.html` file and then click on `Open with Live Server`.
-
 ## Status
 
 In progress 🚧
