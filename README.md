@@ -10,7 +10,7 @@ A iFood like application for managing food orders.
 
 ## Status
 
-In progress 🚧
+Building 🚧
 
 ## License
 
